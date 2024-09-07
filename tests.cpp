@@ -42,19 +42,17 @@ TEST_CASE("Ex2 ", "[example]")
 	/****************************************************/
 	offset = sizeof(Person) * (50 - 1);
 	ifs.seekg(offset, ios::beg);
-	cout << sizeof(Person) << endl;
-	cout << ifs.tellg() << endl;
 	ifs.read((char *)&p, sizeof(Person));
 	printOnePerson(p);
 	REQUIRE(p.no == 50);
 	/****************************************************/
-	offset = 0;
+	offset = sizeof(Person) * (27 - 1);
 	ifs.seekg(offset, ios::beg);
-	// cout << ifs.tellg() << endl;
 	ifs.read((char *)&p, sizeof(Person));
 	cout << p.email << "Email " << endl;
 	printOnePerson(p);
-	REQUIRE(p.name.first == "Louis");
+	// REQUIRE(p.name.first == "Louis");
+	REQUIRE(strcmp(p.name.first, "Louis") == 0);
 	cout << "--------------------------------------------------\n";
 	/****************************************************/
 	ifs.close();

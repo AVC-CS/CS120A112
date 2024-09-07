@@ -10,10 +10,20 @@ int main()
 	cout << "The number of record is " << person.size() << endl;
 	printPerson(person);
 	writeFile(person);
-	number = 50;
+
+	/* Binary File Test */
+	number = 90;
 	p = getRecord(number);
 	printOnePerson(*p);
-	number = 26;
+
+	/* Binary File Test */
+	number = 90;
 	p = getRecord(number);
 	printOnePerson(*p);
+	/* Binary File Test */
+	number = 27;
+	p = getRecord(number);
+	printOnePerson(*p);
+	if (strcmp(p->name.first, "Louis") != 0)
+		cout << "The record is not found" << endl;
 }
